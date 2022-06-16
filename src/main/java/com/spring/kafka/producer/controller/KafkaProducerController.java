@@ -6,30 +6,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kafka.model.TransactionMessage;
-import com.kafka.service.KafKaProducerService;
+import com.spring.kafka.producer.model.User;
+import com.spring.kafka.producer.service.KafKaProducerService;
 
 @RestController
 @RequestMapping(value = "/kafka")
 public class KafkaProducerController {
 
-	private final KafKaProducerService producerService;
-
 	@Autowired
-	public KafkaProducerController(KafKaProducerService producerService) {
-		this.producerService = producerService;
-	}
+	private  KafKaProducerService producerService;
 
-//	@PostMapping(value = "/publish")
-//	public void sendMessageToKafkaTopic(@RequestParam("message") String message) {
-//		this.producerService.sendMessage(message);
-//	}
 
 	@PostMapping(value = "/publish")
-	public String sendJsonToKafkaTopic(@RequestBody TransactionMessage message) {
-		producerService.sendCustomMessage(message);
-
-		return "Done !!";
-
+	public String sendJsonToKafkaTopic(@RequestBody User user) {
+		producerService.sendCustomMessage(user);
+		return "Message Sent !!";
 	}
 }
