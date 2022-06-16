@@ -1,4 +1,4 @@
-package com.spring.kafka.producer.controller;
+package com.spring.kafka.producer.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

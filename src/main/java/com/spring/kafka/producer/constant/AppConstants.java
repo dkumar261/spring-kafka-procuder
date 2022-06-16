@@ -1,4 +1,4 @@
-package com.spring.kafka.producer.controller;
+package com.spring.kafka.producer.constant;
 
 public class AppConstants {
 //    public static final String TOPIC_NAME = "quickstart-topic";
